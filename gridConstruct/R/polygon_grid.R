@@ -380,6 +380,18 @@ squareGrid <- function(data,n=32,square0=initialSquare(data,...),
   grid
 }
 
+lonlatGrid <- function(data,n=32,square0=initialSquare(data,...),
+                       center=data.frame(lon=mean(range(data$lon)), lat=mean(range(data$lat))),
+                       rot=0,lonstep=0.1, latstep=0.1,...){
+  center <- as.list(center)
+  lon <- seq(min(square0$lon),max(square0$lon),by=lonstep)
+  lat <- seq(min(square0$lat),max(square0$lat),by=latstep)    
+  grid <- rectGrid(lon,lat)
+  grid$lon <- grid$lon+center$lon
+  grid$lat <- grid$lat+center$lat
+  grid
+}
+
 ## ==============================================================
 ## Methods for class "polygonGrid"
 ## ==============================================================

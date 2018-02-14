@@ -23,7 +23,8 @@
 gridConstruct <- function(data,type=
                           c("squareGrid",
                             "triangularGrid",
-                            "scatterGrid"),
+                            "scatterGrid",
+                            "lonlatGrid"),
                           filter=TRUE,
                           wet=!wetEdges,
                           wetEdges=FALSE,
